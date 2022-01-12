@@ -1,9 +1,20 @@
 import React from 'react';
 
+function SideNav({ activeProfileId }) {
+  return (
+    <nav className="side-nav">
+      <h1>
+        ID:
+        {activeProfileId}
+      </h1>
+    </nav>
+  );
+}
+
 function Dashboard({ activeProfileId, title, username }) {
   return (
     <div className="dashboard">
-      { activeProfileId }
+      <SideNav {...{ activeProfileId }} />
       { title }
       { username }
     </div>
