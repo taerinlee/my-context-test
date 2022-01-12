@@ -28,7 +28,7 @@ module.exports = {
     'import/resolver': {
       node: {
         moduleDirectory: ['node_modules', '.'],
-        'jsx-one-expression-per-line': 0,
+        'react/jsx-one-expression-per-line': off,
       },
     },
   },
