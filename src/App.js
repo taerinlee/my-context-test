@@ -1,5 +1,15 @@
 import React from 'react';
 
+function Dashboard({ activeProfileId, title, username }) {
+  return (
+    <div className="dashboard">
+      { activeProfileId }
+      { title }
+      { username }
+    </div>
+  );
+}
+
 function App() {
   const [title, setTitle] = React.useState('Home');
   const [username, setUsername] = React.useState('John Doe');
@@ -11,6 +21,7 @@ function App() {
         Welcome,
         {username}
       </h1>
+      <Dashboard {...{ activeProfileId, title, username }} />
     </div>
   );
 }
