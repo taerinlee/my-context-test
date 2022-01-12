@@ -1,4 +1,5 @@
 import React from 'react';
+import { UserContext, UserDispatchContext, UserProvider } from './UserContext';
 
 function SideNav({ activeProfileId }) {
   return (
@@ -21,19 +22,24 @@ function TopNav({ title }) {
   );
 }
 
-function Profile({ username }) {
-  return <h1>{username}</h1>;
-}
+function Profile() {
+  const userDetails = React.useContext(UserContext);
+  const setUserDetails = React.useContext(UserDispatchContext);
 
-function Page({ username }) {
-  return <Profile {...{ username }} />;
-}
-
-function Main({ title, username }) {
   return (
-    <div className="main-content">
-      <TopNav {...{ title }} />
-      <Page {...{ username }} />
+    <h1>
+      <input value={userDetails.username} onChange={setUserDetails} />
+    </h1>
+  );
+}
+
+function Main() {
+  return (
+    <div className="dashboardContent">
+      <UserProvider>
+        <TopNav title="site" />
+        <Profile />
+      </UserProvider>
     </div>
   );
 }
