@@ -11,12 +11,20 @@ function SideNav({ activeProfileId }) {
   );
 }
 
+function Main({ title, username }) {
+  return (
+    <div className="main-content">
+      { title }
+      { username }
+    </div>
+  );
+}
+
 function Dashboard({ activeProfileId, title, username }) {
   return (
     <div className="dashboard">
       <SideNav {...{ activeProfileId }} />
-      { title }
-      { username }
+      <Main {...{ title, username }} />
     </div>
   );
 }
