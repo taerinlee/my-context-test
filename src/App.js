@@ -33,22 +33,24 @@ function Profile() {
   );
 }
 
-function Main() {
+function Main(props) {
+  const { title } = props;
+
   return (
     <div className="dashboardContent">
       <UserProvider>
-        <TopNav title="site" />
+        <TopNav title={title} />
         <Profile />
       </UserProvider>
     </div>
   );
 }
 
-function Dashboard({ activeProfileId, title, username }) {
+function Dashboard({ activeProfileId, title }) {
   return (
     <div className="dashboard">
       <SideNav {...{ activeProfileId }} />
-      <Main {...{ title, username }} />
+      <Main {...{ title }} />
     </div>
   );
 }
@@ -61,10 +63,9 @@ function App() {
   return (
     <div className="app">
       <h1>
-        Welcome,
-        {username}
+        Welcome, {username}
       </h1>
-      <Dashboard {...{ activeProfileId, title, username }} />
+      <Dashboard {...{ activeProfileId, title }} />
     </div>
   );
 }
