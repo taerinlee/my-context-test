@@ -21,11 +21,19 @@ function TopNav({ title }) {
   );
 }
 
+function Profile({ username }) {
+  return <h1>{username}</h1>;
+}
+
+function Page({ username }) {
+  return <Profile {...{ username }} />;
+}
+
 function Main({ title, username }) {
   return (
     <div className="main-content">
       <TopNav {...{ title }} />
-      { username }
+      <Page {...{ username }} />
     </div>
   );
 }
