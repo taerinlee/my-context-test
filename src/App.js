@@ -11,10 +11,20 @@ function SideNav({ activeProfileId }) {
   );
 }
 
+function TopNav({ title }) {
+  return (
+    <nav className="top-nav">
+      <h1>
+        {title}
+      </h1>
+    </nav>
+  );
+}
+
 function Main({ title, username }) {
   return (
     <div className="main-content">
-      { title }
+      <TopNav {...{ title }} />
       { username }
     </div>
   );
